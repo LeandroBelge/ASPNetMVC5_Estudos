@@ -1,17 +1,4 @@
 ﻿@model CaelumEstoque.Models.Produto
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Visualiza</title>
-</head>
-<body>
-    <div>
         <table>
             <tr>
                 <td>Id:</td>
@@ -39,9 +26,6 @@
             </tr>
 
         </table>
-    </div>
     <br />
     <!--@Html.ActionLink("Voltar", "Index", "Produto")-->
     @Html.RouteLink("Voltar", "ListaProdutos")
-</body>
-</html>

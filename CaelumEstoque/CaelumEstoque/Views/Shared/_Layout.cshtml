@@ -1,0 +1,25 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    <link href="~/Content/Css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Css/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li>@Html.ActionLink("Produtos", "Index", "Produto")</li>
+                <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
+            </ul>
+            <h3 class="text-muted">Caelum Estoque</h3>
+        </div>
+        <div id="conteudo">
+            @RenderBody()<!--Esse método faz com que as demais páginas sejam exibidas aqui dentro-->
+        </div>
+    </div>
+</body>
+</html>
