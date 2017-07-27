@@ -12,6 +12,7 @@ namespace CaelumEstoque.Controllers
     {
         //
         // GET: /Produto/
+        [Route("produtos", Name="ListaProdutos")]
         public ActionResult Index()
         {
             var produtosDAO = new ProdutosDAO();
@@ -57,12 +58,12 @@ namespace CaelumEstoque.Controllers
             }
         }
 
+        [Route("produtos/{Id}", Name="VisualizaProdutos")]
         public ActionResult Visualiza(int Id)
         {
             var DAO = new ProdutosDAO();
             Produto produto = DAO.BuscaPorId(Id);
-            ViewBag.Produto = produto;
-            return View();
+            return View(produto);
         }
 	}
 }

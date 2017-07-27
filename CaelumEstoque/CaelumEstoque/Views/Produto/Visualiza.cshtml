@@ -1,4 +1,4 @@
-﻿
+﻿@model CaelumEstoque.Models.Produto
 @{
     Layout = null;
 }
@@ -12,14 +12,36 @@
 </head>
 <body>
     <div>
-        Id: @ViewBag.Produto.Id<br /> 
-        Nome: @ViewBag.Produto.Nome<br />
-        Quantidade: @ViewBag.Produto.Quantidade<br />
-        Preço: @ViewBag.Produto.Preco<br />
-        Descrição: @ViewBag.Produto.Descricao<br />
-        Categoria: @ViewBag.Produto.Categoria.Nome<br />
+        <table>
+            <tr>
+                <td>Id:</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td>@Model.Nome</td>
+            </tr>
+            <tr>
+                <td>Quantidade:</td>
+                <td>@Model.Quantidade</td>
+            </tr>
+            <tr>
+                <td>Preço:</td>
+                <td>@Model.Preco</td>
+            </tr>
+            <tr>
+                <td>Descrição:</td>
+                <td>@Model.Descricao</td>
+            </tr>
+            <tr>
+                <td>Categoria:</td>
+                <td>@Model.Categoria.Nome</td>
+            </tr>
+
+        </table>
     </div>
     <br />
-    @Html.ActionLink("Voltar", "Index", "Produto")
+    <!--@Html.ActionLink("Voltar", "Index", "Produto")-->
+    @Html.RouteLink("Voltar", "ListaProdutos")
 </body>
 </html>
