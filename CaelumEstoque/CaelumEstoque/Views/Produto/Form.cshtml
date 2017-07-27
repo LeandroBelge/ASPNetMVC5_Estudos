@@ -21,6 +21,8 @@
             
             <label for="preco">Preço:</label>
             <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" />
+            @Html.ValidationMessage("produto.Preco")
+
             <label for="quantidade">Quantidade:</label>
             <input id="quantidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" />
             <label for="descricao">Descrição:</label>

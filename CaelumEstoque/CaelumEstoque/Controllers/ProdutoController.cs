@@ -16,8 +16,7 @@ namespace CaelumEstoque.Controllers
         {
             var produtosDAO = new ProdutosDAO();
             IList<Produto> produtos = produtosDAO.Lista();
-            ViewBag.Produtos = produtos;
-            return View();
+            return View(produtos);
         }
 
         public ActionResult Form()
@@ -56,6 +55,14 @@ namespace CaelumEstoque.Controllers
             {
                 ModelState.AddModelError("produto.Invalido", "O preço do produto não pode ser menor que R$ 100,00");
             }
+        }
+
+        public ActionResult Visualiza(int Id)
+        {
+            var DAO = new ProdutosDAO();
+            Produto produto = DAO.BuscaPorId(Id);
+            ViewBag.Produto = produto;
+            return View();
         }
 	}
 }
