@@ -13,9 +13,9 @@ namespace CaelumEstoque
     {
         protected void Application_Start()
         {
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);//Registrando os filtros de autorização
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);//Registrando os filtros de autorização
         }
     }
 }

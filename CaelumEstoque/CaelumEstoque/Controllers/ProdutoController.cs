@@ -31,8 +31,7 @@ namespace CaelumEstoque.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             this.Validar(produto);
