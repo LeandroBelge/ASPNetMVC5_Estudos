@@ -6,21 +6,38 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Quantidade</th>
+            <th></th>
         </tr>     
     </thead>
     <tbody>
         @{
-            foreach (var item in Model)
+            foreach (var produto in Model)
             {
                 <tr>
-                    <td>@item.Id</td>
+                    <td>@produto.Id</td>
                     <td>
-                        <!--@Html.ActionLink(item.Nome, "Visualiza", new { Id = item.Id })-->
-                        @Html.RouteLink(item.Nome, "VisualizaProdutos", new { Id = item.Id })
+                        <!--@Html.ActionLink(produto.Nome, "Visualiza", new { Id = produto.Id })-->
+                        @Html.RouteLink(produto.Nome, "VisualizaProdutos", new { Id = produto.Id })
                     </td>
-                    <td>@item.Quantidade</td>
+                    <td id="quantidade@(produto.Id)"><!--O Razor consegue enteder qual o que será modificado com a notação dessa forma no id da tag-->
+                        @produto.Quantidade
+                    </td>
+                    <td>
+                        <a href="#" onclick="decrementa(@produto.Id);">Decrementar</a>
+                    </td>
                 </tr>
             }
         }
     </tbody>
 </table> 
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    function decrementa(produtoId) {
+        var url = "@Url.Action("DecrementaQtd", "Produto")";
+        $.post(url, { Id: produtoId }, atualiza);//Passo a url do controller, informo o Id do produto e o método atualiza será chamado quando o servidor responder.
+    }
+
+    function atualiza(resposta) {
+        $("#quantidade" + resposta.Id).html(resposta.Quantidade)//Recupero o elemento pelo id depois com o método html eu altero a quantidade no html da página.
+    }
+</script>

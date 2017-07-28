@@ -65,5 +65,14 @@ namespace CaelumEstoque.Controllers
             Produto produto = DAO.BuscaPorId(Id);
             return View(produto);
         }
+
+        public ActionResult DecrementaQtd(int Id)
+        {
+            var DAO = new ProdutosDAO();
+            Produto produto = DAO.BuscaPorId(Id);
+            produto.Quantidade--;
+            DAO.Atualiza(produto);
+            return Json(produto);
+        }
 	}
 }
