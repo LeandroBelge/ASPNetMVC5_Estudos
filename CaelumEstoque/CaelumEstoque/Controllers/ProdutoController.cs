@@ -66,6 +66,7 @@ namespace CaelumEstoque.Controllers
             return View(produto);
         }
 
+        [HttpPost]
         public ActionResult DecrementaQtd(int Id)
         {
             var DAO = new ProdutosDAO();
